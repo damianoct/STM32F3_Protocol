@@ -3,7 +3,7 @@
 #include "main.h"
 #include "stdlib.h"
 
-#define MAX_PAYLOAD 65536
+#define MAX_DIM 300
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -26,7 +26,7 @@ uint8_t * initPacket(uint8_t *header);
   
 int crcCounter;
 
-uint8_t *intBuff, *packet, pacchetto[3000] ;
+uint8_t *intBuff, *packet, pacchetto[MAX_DIM] ;
 uint16_t pLen, tmpF, tmpS;
 int readProgress = 0;
 int flagHeader = 1;
