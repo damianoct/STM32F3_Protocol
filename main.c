@@ -3,40 +3,27 @@
 #include "main.h"
 #include "stdlib.h"
 
-#define MAX_DIM 300
-
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
+#define MAX_DIM 300
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 __IO uint32_t TimingDelay = 0;
 GPIO_InitTypeDef GPIO_InitStructure;
-int data_arrived = 0;
-int nibble_high  = 0;
-int nibble_low   = 0;
-
 
 /* Private function prototypes -----------------------------------------------*/
 void Delay(__IO uint32_t nTime);
-void initPacket2(uint8_t *header);
 
 uint16_t readPayloadLength(uint8_t firstLen, uint8_t secondLen);
-uint8_t * initPacket(uint8_t *header); 
 
-  
-int crcCounter;
-
-uint8_t *intBuff, *packet, pacchetto[MAX_DIM] ;
-uint16_t pLen, tmpF, tmpS;
+uint8_t buffer[MAX_DIM], pacchetto[MAX_DIM];
+uint16_t pLen;
 int readProgress = 0;
-int flagHeader = 1;
-
-
 
   int main(void)
 {
 
-  intBuff = (uint8_t *)malloc(6);
+  //intBuff = (uint8_t *)malloc(6);
          
   /* Setup SysTick Timer for 1 µsec interrupts  */
   if (SysTick_Config(SystemCoreClock / 1000000))
@@ -113,104 +100,55 @@ void Delay(__IO uint32_t nTime)
 
 void USART2_IRQHandler(void)
 {
-  
     if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET)
-    {     
-      //se ho letto l'header
-      if(!flagHeader)
-      {
-        //payload....
-        
-        if(pLen != 0)
+    {
+        //Attendo un nuovo byte di START
+        if (readProgress == 0)
         {
-           pacchetto[readProgress] = USART_ReceiveData(USART2);
-           USART_SendData(USART2,pacchetto[readProgress]);
-           readProgress++;
-           pLen--;
+            if(USART_ReceiveData(USART2) == 0x2E)
+            {
+                buffer[readProgress] = USART_ReceiveData(USART2);
+                USART_SendData(USART2,buffer[readProgress]);
+                readProgress++;
+            }
+            //Altrimenti non fa niente
         }
-        else 
+        //Sto assemblando l'header
+        else if (readProgress < 6)
         {
-          if(crcCounter != 2)
-          {
-              pacchetto[readProgress + crcCounter] = USART_ReceiveData(USART2);
-              USART_SendData(USART2,(char) pacchetto[readProgress + crcCounter]);
-              crcCounter++;
-              if(crcCounter == 2)
-              {
+            buffer[readProgress] = USART_ReceiveData(USART2);
+            USART_SendData(USART2,buffer[readProgress]);
+            readProgress++;
+            if(readProgress == 6)
+            {
+                pLen = readPayloadLength(buffer[4], buffer[5]);
+                //Se il payload è troppo grande lo considera sbagliato e scarta il pacchetto
+                if (pLen > MAX_DIM - 8)
+                {
+                    readProgress = 0;
+                    memset(buffer, 0, MAX_DIM);
+                }
+            }
+        }
+        //Sto assemblando il Payload
+        else if (readProgress < 6 + pLen)
+        {
+            buffer[readProgress] = USART_ReceiveData(USART2);
+            USART_SendData(USART2,buffer[readProgress]);
+            readProgress++;
+        }
+        //Sto assemblando il CRC
+        else if (readProgress < MAX_DIM)
+        {
+            buffer[readProgress] = USART_ReceiveData(USART2);
+            USART_SendData(USART2,buffer[readProgress]);
+            readProgress++;
+            if(readProgress == 8 + pLen)
+            {
                 readProgress = 0;
-                crcCounter = 0;
-                flagHeader = 1;
-              }
-          }  
-        }
-          
-      }
-      
-      else
-      {
-        //leggo l'header
-      
-          switch(readProgress)
-          {
-            case 0:
-            {
-                  if(USART_ReceiveData(USART2) == 0x2E)
-                  {
-                    *(intBuff+readProgress) = USART_ReceiveData(USART2);
-                    USART_SendData(USART2,(char) *(intBuff+readProgress));
-                    readProgress++;
-                  }
-                    break;
+                //ElaboraPacchetto()
+                //memset(buffer, 0, MAX_DIM);
             }
-            case 1: //CONF (8bit)
-            {
-                  *(intBuff+readProgress) = USART_ReceiveData(USART2);
-                  USART_SendData(USART2,(char) *(intBuff+readProgress));
-                  readProgress++;
-                  break;
-            }
-            
-            case 2: // CODE (prima parte 8 bit)
-            {
-                  *(intBuff+readProgress) = USART_ReceiveData(USART2);
-                  USART_SendData(USART2,(char) *(intBuff+readProgress));
-                  readProgress++;
-                  break;
-            }
-            
-            case 3: // CODE (seconda parte 8 bit)
-            {
-                  *(intBuff+readProgress) = USART_ReceiveData(USART2);
-                  USART_SendData(USART2,(char) *(intBuff+readProgress));
-                  readProgress++;
-                  break;
-            }
-            
-            case 4: // CODE (prima parte 8 bit)
-            {
-                  *(intBuff+readProgress) = USART_ReceiveData(USART2);
-                  USART_SendData(USART2,(char) *(intBuff+readProgress));
-                  readProgress++; // vale 5
-                  break;
-            }
-            
-            case 5: // PLEN (seconda parte 8 bit)
-            {
-                  *(intBuff+readProgress) = USART_ReceiveData(USART2);
-                  USART_SendData(USART2,(char) *(intBuff+readProgress));
-                  pLen = readPayloadLength(*(intBuff+4), *(intBuff+5));
-                  //packet = initPacket(intBuff);
-                  initPacket2(intBuff);
-                  readProgress++; //vale 6
-                  flagHeader = 0;
-                  
-                  
-                  break;
-            }
-       
-                
-          }
-          
         }
     }
    
@@ -218,6 +156,8 @@ void USART2_IRQHandler(void)
 
 uint16_t readPayloadLength(uint8_t firstLen, uint8_t secondLen)
 {
+  uint16_t tmpF, tmpS;
+  
   tmpF = (uint16_t) firstLen;
   tmpF <<= 8;
   tmpS = (uint16_t) secondLen;
@@ -226,25 +166,6 @@ uint16_t readPayloadLength(uint8_t firstLen, uint8_t secondLen)
   
 }
 
-uint8_t * initPacket(uint8_t *header)
-{
-    uint8_t *myPacket;
-    myPacket = (uint8_t *) malloc(pLen + 8);
-    
-    for(int i = 0; i < 6; i++)
-      *(myPacket + i) = *(header + i);
-    
-    
-    return myPacket;
-    
-}
-
-void initPacket2(uint8_t *header)
-{
-  //memset(pacchetto,0,8 + pLen);
-  for(int i = 0; i < 8; i++)
-    pacchetto[i] = *(header + i);
-}
 
 #ifdef  USE_FULL_ASSERT
 

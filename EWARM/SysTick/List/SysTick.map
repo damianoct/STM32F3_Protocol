@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V7.40.1.8447/W32 for ARM                 22/May/2015  18:57:31
+# IAR ELF Linker V7.40.1.8447/W32 for ARM                 23/May/2015  12:33:09
 # Copyright 2007-2015 IAR Systems AB.
 #
 #    Output file  =  
@@ -80,7 +80,6 @@
 ***
 
 CppFlavor       = *
-__Heap_Handler  = Basic
 __SystemLibrary = DLib
 
 
@@ -98,124 +97,118 @@ __SystemLibrary = DLib
   .intvec            ro code  0x08000000  0x188  startup_stm32f30x.o [1]
                             - 0x08000188  0x188
 
-"P1":                                     0xb84
+"P1":                                     0xa44
   .text              ro code  0x08000188  0x258  stm32f30x_rcc.o [1]
-  .text              ro code  0x080003e0  0x1dc  main.o [1]
-  .text              ro code  0x080005bc   0xb0  xxmemxmalloc.o [3]
-  .text              ro code  0x0800066c   0x92  stm32f30x_gpio.o [1]
-  .text              ro code  0x080006fe   0x22  zero_init3.o [5]
-  .text              ro code  0x08000720  0x136  stm32f30x_usart.o [1]
-  .text              ro code  0x08000858   0x6c  stm32f30x_misc.o [1]
-  .text              ro code  0x080008c4   0x80  xxmemxfree.o [3]
-  .text              ro code  0x08000944   0x2c  xgetmemchunk.o [3]
-  .text              ro code  0x08000970   0xf8  system_stm32f30x.o [1]
-  .text              ro code  0x08000a68   0x2c  copy_init3.o [5]
-  .text              ro code  0x08000a94   0x28  data_init.o [5]
-  .text              ro code  0x08000abc   0x22  fpinit_M.o [4]
-  .iar.init_table    const    0x08000ae0   0x24  - Linker created -
-  .text              ro code  0x08000b04   0x20  stm32f30x_it.o [1]
-  .text              ro code  0x08000b24   0x1a  cmain.o [5]
-  .text              ro code  0x08000b3e    0x4  low_level_init.o [3]
-  .text              ro code  0x08000b42    0x4  exit.o [3]
-  .text              ro code  0x08000b48    0xa  cexit.o [5]
-  .text              ro code  0x08000b54   0x14  exit.o [6]
-  .text              ro code  0x08000b68   0x10  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b78    0xc  cstartup_M.o [5]
+  .text              ro code  0x080003e0  0x198  main.o [1]
+  .text              ro code  0x08000578   0x92  stm32f30x_gpio.o [1]
+  .text              ro code  0x0800060a   0x22  zero_init3.o [5]
+  .text              ro code  0x0800062c  0x136  stm32f30x_usart.o [1]
+  .text              ro code  0x08000764   0x6c  stm32f30x_misc.o [1]
+  .text              ro code  0x080007d0   0x14  memset.o [3]
+  .text              ro code  0x080007e4   0x66  ABImemset.o [5]
+  .text              ro code  0x0800084c   0xf8  system_stm32f30x.o [1]
+  .text              ro code  0x08000944   0x2c  copy_init3.o [5]
+  .text              ro code  0x08000970   0x28  data_init.o [5]
+  .text              ro code  0x08000998   0x22  fpinit_M.o [4]
+  .iar.init_table    const    0x080009bc   0x24  - Linker created -
+  .text              ro code  0x080009e0   0x20  stm32f30x_it.o [1]
+  .text              ro code  0x08000a00   0x1a  cmain.o [5]
+  .text              ro code  0x08000a1a    0x4  low_level_init.o [3]
+  .text              ro code  0x08000a1e    0x4  exit.o [3]
+  .text              ro code  0x08000a24    0xa  cexit.o [5]
+  .text              ro code  0x08000a30   0x14  exit.o [6]
+  .text              ro code  0x08000a44   0x10  startup_stm32f30x.o [1]
+  .text              ro code  0x08000a54    0xc  cstartup_M.o [5]
+  .text              ro code  0x08000a60    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000a64    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000a68    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000a6c    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000a70    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000a74    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000a78    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000a7c    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000a80    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000a84    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000a88    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000a8c    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000a90    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000a94    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000a98    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000a9c    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000aa0    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000aa4    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000aa8    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000aac    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000ab0    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000ab4    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000ab8    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000abc    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000ac0    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000ac4    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000ac8    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000acc    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000ad0    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000ad4    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000ad8    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000adc    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000ae0    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000ae4    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000ae8    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000aec    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000af0    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000af4    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000af8    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000afc    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b00    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b04    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b08    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b0c    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b10    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b14    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b18    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b1c    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b20    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b24    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b28    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b2c    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b30    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b34    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b38    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b3c    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b40    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b44    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b48    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b4c    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b50    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b54    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b58    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b5c    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b60    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b64    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b68    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b6c    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b70    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b74    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b78    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b7c    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b80    0x4  startup_stm32f30x.o [1]
   .text              ro code  0x08000b84    0x4  startup_stm32f30x.o [1]
   .text              ro code  0x08000b88    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b8c    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b90    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b94    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b98    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b9c    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000ba0    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000ba4    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000ba8    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000bac    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000bb0    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000bb4    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000bb8    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000bbc    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000bc0    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000bc4    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000bc8    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000bcc    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000bd0    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000bd4    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000bd8    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000bdc    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000be0    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000be4    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000be8    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000bec    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000bf0    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000bf4    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000bf8    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000bfc    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c00    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c04    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c08    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c0c    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c10    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c14    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c18    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c1c    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c20    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c24    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c28    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c2c    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c30    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c34    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c38    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c3c    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c40    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c44    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c48    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c4c    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c50    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c54    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c58    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c5c    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c60    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c64    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c68    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c6c    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c70    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c74    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c78    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c7c    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c80    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c84    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c88    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c8c    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c90    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c94    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c98    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000c9c    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000ca0    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000ca4    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000ca8    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000cac    0x4  startup_stm32f30x.o [1]
-  .rodata            const    0x08000cb0    0x0  zero_init3.o [5]
-  .rodata            const    0x08000cb0    0x0  copy_init3.o [5]
-  Initializer bytes  const    0x08000cb0   0x5c  <for P2 s0>
-                            - 0x08000d0c  0xb84
+  .rodata            const    0x08000b8c    0x0  zero_init3.o [5]
+  .rodata            const    0x08000b8c    0x0  copy_init3.o [5]
+  Initializer bytes  const    0x08000b8c   0x40  <for P2 s0>
+                            - 0x08000bcc  0xa44
 
-"P2":                                     0x7a0
-  P2 s0                       0x20000000   0x5c  <Init block>
+"P2":                                     0x580
+  P2 s0                       0x20000000   0x40  <Init block>
     .data            inited   0x20000000   0x2c  stm32f30x_rcc.o [1]
-    .data            inited   0x2000002c   0x1c  main.o [1]
-    .data            inited   0x20000048   0x14  system_stm32f30x.o [1]
-  .bss               zero     0x2000005c  0x12c  main.o [1]
-  .bss               zero     0x20000188    0x8  xxmemxmalloc.o [3]
-  .bss               zero     0x20000190    0x4  main.o [1]
-  .bss               zero     0x20000194    0x4  main.o [1]
-  .bss               zero     0x20000198    0x4  xgetmemchunk.o [3]
-  CSTACK                      0x200001a0  0x400  <Block>
-    CSTACK           uninit   0x200001a0  0x400  <Block tail>
-  HEAP                        0x200005a0  0x200  <Block>
-    HEAP             uninit   0x200005a0  0x200  <Block tail>
-                            - 0x200007a0  0x7a0
+    .data            inited   0x2000002c   0x14  system_stm32f30x.o [1]
+  .bss               zero     0x20000040  0x134  main.o [1]
+  .bss               zero     0x20000174    0x8  main.o [1]
+  .bss               zero     0x2000017c    0x4  main.o [1]
+  CSTACK                      0x20000180  0x400  <Block>
+    CSTACK           uninit   0x20000180  0x400  <Block tail>
+                            - 0x20000580  0x580
 
 
 *******************************************************************************
@@ -226,13 +219,13 @@ __SystemLibrary = DLib
           -------     ----
 Zero (__iar_zero_init3)
     1 destination range, total size 0x140:
-          0x2000005c  0x140
+          0x20000040  0x140
 
 Copy (__iar_copy_init3)
-    1 source range, total size 0x5c:
-          0x08000cb0   0x5c
-    1 destination range, total size 0x5c:
-          0x20000000   0x5c
+    1 source range, total size 0x40:
+          0x08000b8c   0x40
+    1 destination range, total size 0x40:
+          0x20000000   0x40
 
 
 
@@ -243,7 +236,7 @@ Copy (__iar_copy_init3)
     Module               ro code  ro data  rw data
     ------               -------  -------  -------
 C:\Users\Marco\Desktop\Esempi miei\Project\Lab\STM32F3_Protocol\EWARM\SysTick\Obj: [1]
-    main.o                   476       28      336
+    main.o                   408               320
     startup_stm32f30x.o      708
     stm32f30x_gpio.o         146
     stm32f30x_it.o            32
@@ -252,7 +245,7 @@ C:\Users\Marco\Desktop\Esempi miei\Project\Lab\STM32F3_Protocol\EWARM\SysTick\Ob
     stm32f30x_usart.o        310
     system_stm32f30x.o       248       20       20
     ----------------------------------------------
-    Total:                 2 628       92      400
+    Total:                 2 560       64      384
 
 command line: [2]
     ----------------------------------------------
@@ -261,11 +254,9 @@ command line: [2]
 dl7M_tln.a: [3]
     exit.o                     4
     low_level_init.o           4
-    xgetmemchunk.o            44                 4
-    xxmemxfree.o             128
-    xxmemxmalloc.o           176                 8
+    memset.o                  20
     ----------------------------------------------
-    Total:                   356                12
+    Total:                    28
 
 m7M_tls.a: [4]
     fpinit_M.o                34
@@ -273,6 +264,7 @@ m7M_tls.a: [4]
     Total:                    34
 
 rt7M_tl.a: [5]
+    ABImemset.o              102
     cexit.o                   10
     cmain.o                   26
     copy_init3.o              44
@@ -280,17 +272,17 @@ rt7M_tl.a: [5]
     data_init.o               40
     zero_init3.o              34
     ----------------------------------------------
-    Total:                   166
+    Total:                   268
 
 shb_l.a: [6]
     exit.o                    20
     ----------------------------------------------
     Total:                    20
 
-    Gaps                       6        2
-    Linker created                     36    1 536
+    Gaps                       8        2
+    Linker created                     36    1 024
 --------------------------------------------------
-    Grand Total:           3 210      130    1 948
+    Grand Total:           2 918      102    1 408
 
 
 *******************************************************************************
@@ -299,72 +291,64 @@ shb_l.a: [6]
 
 Entry                      Address   Size  Type      Object
 -----                      -------   ----  ----      ------
-.iar.init_table$$Base   0x08000ae0          --   Gb  - Linker created -
-.iar.init_table$$Limit  0x08000b04          --   Gb  - Linker created -
-?main                   0x08000b25         Code  Gb  cmain.o [5]
+.iar.init_table$$Base   0x080009bc          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x080009e0          --   Gb  - Linker created -
+?main                   0x08000a01         Code  Gb  cmain.o [5]
 ADCPrescTable           0x20000010   0x1c  Data  Lc  stm32f30x_rcc.o [1]
-AHBPrescTable           0x20000048   0x10  Data  Gb  system_stm32f30x.o [1]
+AHBPrescTable           0x2000002c   0x10  Data  Gb  system_stm32f30x.o [1]
 APBAHBPrescTable        0x20000000   0x10  Data  Lc  stm32f30x_rcc.o [1]
-BusFault_Handler        0x08000b0b    0x2  Code  Gb  stm32f30x_it.o [1]
-CSTACK$$Base            0x200001a0          --   Gb  - Linker created -
-CSTACK$$Limit           0x200005a0          --   Gb  - Linker created -
-DebugMon_Handler        0x08000b11    0x2  Code  Gb  stm32f30x_it.o [1]
-GPIO_Init               0x0800066d   0x6e  Code  Gb  stm32f30x_gpio.o [1]
-GPIO_InitStructure      0x2000002c    0x8  Data  Gb  main.o [1]
-GPIO_PinAFConfig        0x080006db   0x24  Code  Gb  stm32f30x_gpio.o [1]
-HEAP$$Base              0x200005a0          --   Gb  - Linker created -
-HEAP$$Limit             0x200007a0          --   Gb  - Linker created -
-HardFault_Handler       0x08000b07    0x2  Code  Gb  stm32f30x_it.o [1]
-MemManage_Handler       0x08000b09    0x2  Code  Gb  stm32f30x_it.o [1]
-NMI_Handler             0x08000b05    0x2  Code  Gb  stm32f30x_it.o [1]
-NVIC_Init               0x08000859   0x5a  Code  Gb  stm32f30x_misc.o [1]
-PendSV_Handler          0x08000b13    0x2  Code  Gb  stm32f30x_it.o [1]
+BusFault_Handler        0x080009e7    0x2  Code  Gb  stm32f30x_it.o [1]
+CSTACK$$Base            0x20000180          --   Gb  - Linker created -
+CSTACK$$Limit           0x20000580          --   Gb  - Linker created -
+DebugMon_Handler        0x080009ed    0x2  Code  Gb  stm32f30x_it.o [1]
+GPIO_Init               0x08000579   0x6e  Code  Gb  stm32f30x_gpio.o [1]
+GPIO_InitStructure      0x20000174    0x8  Data  Gb  main.o [1]
+GPIO_PinAFConfig        0x080005e7   0x24  Code  Gb  stm32f30x_gpio.o [1]
+HardFault_Handler       0x080009e3    0x2  Code  Gb  stm32f30x_it.o [1]
+MemManage_Handler       0x080009e5    0x2  Code  Gb  stm32f30x_it.o [1]
+NMI_Handler             0x080009e1    0x2  Code  Gb  stm32f30x_it.o [1]
+NVIC_Init               0x08000765   0x5a  Code  Gb  stm32f30x_misc.o [1]
+PendSV_Handler          0x080009ef    0x2  Code  Gb  stm32f30x_it.o [1]
 RCC_AHBPeriphClockCmd   0x080003a3   0x12  Code  Gb  stm32f30x_rcc.o [1]
 RCC_APB1PeriphClockCmd  0x080003b5   0x12  Code  Gb  stm32f30x_rcc.o [1]
 RCC_GetClocksFreq       0x08000189  0x21a  Code  Gb  stm32f30x_rcc.o [1]
-Region$$Table$$Base     0x08000ae0          --   Gb  - Linker created -
-Region$$Table$$Limit    0x08000b04          --   Gb  - Linker created -
-SVC_Handler             0x08000b0f    0x2  Code  Gb  stm32f30x_it.o [1]
-SysTick_Handler         0x08000b15    0xa  Code  Gb  stm32f30x_it.o [1]
-SystemCoreClock         0x20000058    0x4  Data  Gb  system_stm32f30x.o [1]
-SystemInit              0x08000971   0xda  Code  Gb  system_stm32f30x.o [1]
-TimingDelay             0x20000190    0x4  Data  Gb  main.o [1]
-USART2_IRQHandler       0x080004b1   0xaa  Code  Gb  main.o [1]
-USART_Cmd               0x080007d5   0x12  Code  Gb  stm32f30x_usart.o [1]
-USART_GetITStatus       0x08000821   0x36  Code  Gb  stm32f30x_usart.o [1]
-USART_ITConfig          0x080007f7   0x2a  Code  Gb  stm32f30x_usart.o [1]
-USART_Init              0x08000721   0x9e  Code  Gb  stm32f30x_usart.o [1]
-USART_ReceiveData       0x080007ef    0x8  Code  Gb  stm32f30x_usart.o [1]
-USART_SendData          0x080007e7    0x8  Code  Gb  stm32f30x_usart.o [1]
-UsageFault_Handler      0x08000b0d    0x2  Code  Gb  stm32f30x_it.o [1]
-__cmain                 0x08000b25         Code  Gb  cmain.o [5]
-__data_Aldata           0x20000188    0x8  Data  Gb  xxmemxmalloc.o [3]
-__data_GetMemChunk      0x08000945   0x2c  Code  Gb  xgetmemchunk.o [3]
-__exit                  0x08000b55   0x14  Code  Gb  exit.o [6]
-__iar_copy_init3        0x08000a69   0x2c  Code  Gb  copy_init3.o [5]
-__iar_data_init3        0x08000a95   0x28  Code  Gb  data_init.o [5]
-__iar_init_vfp          0x08000abd         Code  Gb  fpinit_M.o [4]
-__iar_program_start     0x08000b79         Code  Gb  cstartup_M.o [5]
-__iar_zero_init3        0x080006ff   0x22  Code  Gb  zero_init3.o [5]
-__low_level_init        0x08000b3f    0x4  Code  Gb  low_level_init.o [3]
+Region$$Table$$Base     0x080009bc          --   Gb  - Linker created -
+Region$$Table$$Limit    0x080009e0          --   Gb  - Linker created -
+SVC_Handler             0x080009eb    0x2  Code  Gb  stm32f30x_it.o [1]
+SysTick_Handler         0x080009f1    0xa  Code  Gb  stm32f30x_it.o [1]
+SystemCoreClock         0x2000003c    0x4  Data  Gb  system_stm32f30x.o [1]
+SystemInit              0x0800084d   0xda  Code  Gb  system_stm32f30x.o [1]
+TimingDelay             0x2000017c    0x4  Data  Gb  main.o [1]
+USART2_IRQHandler       0x080004a5   0x98  Code  Gb  main.o [1]
+USART_Cmd               0x080006e1   0x12  Code  Gb  stm32f30x_usart.o [1]
+USART_GetITStatus       0x0800072d   0x36  Code  Gb  stm32f30x_usart.o [1]
+USART_ITConfig          0x08000703   0x2a  Code  Gb  stm32f30x_usart.o [1]
+USART_Init              0x0800062d   0x9e  Code  Gb  stm32f30x_usart.o [1]
+USART_ReceiveData       0x080006fb    0x8  Code  Gb  stm32f30x_usart.o [1]
+USART_SendData          0x080006f3    0x8  Code  Gb  stm32f30x_usart.o [1]
+UsageFault_Handler      0x080009e9    0x2  Code  Gb  stm32f30x_it.o [1]
+__aeabi_memset          0x080007e5         Code  Gb  ABImemset.o [5]
+__cmain                 0x08000a01         Code  Gb  cmain.o [5]
+__exit                  0x08000a31   0x14  Code  Gb  exit.o [6]
+__iar_Memset            0x080007e5         Code  Gb  ABImemset.o [5]
+__iar_Memset_word       0x080007ed         Code  Gb  ABImemset.o [5]
+__iar_copy_init3        0x08000945   0x2c  Code  Gb  copy_init3.o [5]
+__iar_data_init3        0x08000971   0x28  Code  Gb  data_init.o [5]
+__iar_init_vfp          0x08000999         Code  Gb  fpinit_M.o [4]
+__iar_program_start     0x08000a55         Code  Gb  cstartup_M.o [5]
+__iar_zero_init3        0x0800060b   0x22  Code  Gb  zero_init3.o [5]
+__low_level_init        0x08000a1b    0x4  Code  Gb  low_level_init.o [3]
 __vector_table          0x08000000         Data  Gb  startup_stm32f30x.o [1]
-_call_main              0x08000b31         Code  Gb  cmain.o [5]
-_exit                   0x08000b49         Code  Gb  cexit.o [5]
-_main                   0x08000b3b         Code  Gb  cmain.o [5]
-crcCounter              0x20000038    0x4  Data  Gb  main.o [1]
-exit                    0x08000b43    0x4  Code  Gb  exit.o [3]
-flagHeader              0x20000044    0x4  Data  Gb  main.o [1]
-free                    0x080008c5   0x7a  Code  Gb  xxmemxfree.o [3]
-initPacket2             0x08000589   0x10  Code  Gb  main.o [1]
-intBuff                 0x2000003c    0x4  Data  Gb  main.o [1]
-main                    0x080003e1   0xce  Code  Gb  main.o [1]
-malloc                  0x080005bd   0xac  Code  Gb  xxmemxmalloc.o [3]
-pLen                    0x20000034    0x2  Data  Gb  main.o [1]
-pacchetto               0x2000005c  0x12c  Data  Gb  main.o [1]
-readPayloadLength       0x0800057d    0xc  Code  Gb  main.o [1]
-readProgress            0x20000040    0x4  Data  Gb  main.o [1]
-tmpF                    0x20000194    0x2  Data  Gb  main.o [1]
-tmpS                    0x20000196    0x2  Data  Gb  main.o [1]
+_call_main              0x08000a0d         Code  Gb  cmain.o [5]
+_exit                   0x08000a25         Code  Gb  cexit.o [5]
+_main                   0x08000a17         Code  Gb  cmain.o [5]
+buffer                  0x20000040  0x12c  Data  Gb  main.o [1]
+exit                    0x08000a1f    0x4  Code  Gb  exit.o [3]
+main                    0x080003e1   0xc4  Code  Gb  main.o [1]
+memset                  0x080007d1   0x14  Code  Gb  memset.o [3]
+pLen                    0x2000016c    0x2  Data  Gb  main.o [1]
+readPayloadLength       0x08000573    0x6  Code  Gb  main.o [1]
+readProgress            0x20000170    0x4  Data  Gb  main.o [1]
 
 
 [1] = C:\Users\Marco\Desktop\Esempi miei\Project\Lab\STM32F3_Protocol\EWARM\SysTick\Obj
@@ -374,9 +358,9 @@ tmpS                    0x20000196    0x2  Data  Gb  main.o [1]
 [5] = rt7M_tl.a
 [6] = shb_l.a
 
-  3 210 bytes of readonly  code memory
-    130 bytes of readonly  data memory
-  1 948 bytes of readwrite data memory
+  2 918 bytes of readonly  code memory
+    102 bytes of readonly  data memory
+  1 408 bytes of readwrite data memory
 
 Errors: none
 Warnings: none
