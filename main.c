@@ -76,7 +76,7 @@ void Init_Timer(uint32_t period)
 
     TIM_TimeBaseInitTypeDef timerInitStructure; 
     //Forse un PLL raddoppia la frequenza
-    timerInitStructure.TIM_Prescaler = 72000 - 1 ; //Ho messo il -1 perchè l'ho visto fare.
+    timerInitStructure.TIM_Prescaler = 36000 - 1 ; //Ho messo il -1 perchè l'ho visto fare.
     timerInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
     timerInitStructure.TIM_Period = period -1; //Ho messo il -1 perchè l'ho visto fare.
     timerInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
@@ -327,6 +327,8 @@ void BAU_Led(uint8_t pack[])
         }
     case BLINK:
       {
+          //Non implementa il duty cycle. Probabilmente si fa con PWM e con
+          //Un timer diverso (TIM1 a vedere dal datasheet).
           t_blink = readPayloadLength(pack[SPEED_1], pack[SPEED_2]);
           blinking_led = led_n;
           Init_Timer(t_blink/2);
