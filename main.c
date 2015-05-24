@@ -5,19 +5,35 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
-#define MAX_DIM 300
+#define MAX_DIM          300
 #define MAX_HEADER_INDEX 4
 
 //Campi del pacchetto
-#define START 0
-#define CONF 1
-#define CODE 2
-#define PLEN_1 3
-#define PLEN_2 4
+#define START   0
+#define CONF    1
+#define CODE    2
+#define PLEN_1  3
+#define PLEN_2  4
 
 //Codici dei comandi
-#define ECHO 0x00
-#define FW_VERSION 0x01
+#define ECHO         0x00
+#define FW_VERSION   0x01
+#define LED          0x02
+
+//Parametri del comando LED
+#define LED_num PLEN_2 + 1
+#define ACTION  PLEN_2 + 2
+#define GET     0x00
+#define SET     0x01
+#define BLINK   0x02
+//-------Valori SET--------------
+#define OFF     0x00
+#define ON      0x01
+#define TOGGLE  0x02
+//------Valori BLINK-------------
+#define SPEED_1 ACTION + 1
+#define SPEED_2 ACTION + 2
+#define DUTY    ACTION + 3
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
@@ -32,10 +48,54 @@ uint8_t isBitSet(uint8_t buffer, int index);
 void BAU_PacketClone(uint8_t buffer[]);
 void BAU_PacketDispatch(uint8_t pack[]);
 void BAU_Echo(uint8_t pack[]);
+void BAU_FW_Version(uint8_t pack[]);
+void BAU_Led(uint8_t pack[]);
 
 uint8_t buffer[MAX_DIM], packet[MAX_DIM];
-uint16_t pLen;
+uint16_t pLen, blinking_led;
 int readProgress = 0;
+int debug = 0, t_blink;
+
+void All_Led_init()
+{
+    //STM_EVAL_LEDInit(LED1);
+    //STM_EVAL_LEDInit(LED2);
+    STM_EVAL_LEDInit(LED3);
+    STM_EVAL_LEDInit(LED4);
+    STM_EVAL_LEDInit(LED5);
+    STM_EVAL_LEDInit(LED6);
+    STM_EVAL_LEDInit(LED7);
+    STM_EVAL_LEDInit(LED8);
+    STM_EVAL_LEDInit(LED9);
+    STM_EVAL_LEDInit(LED10);
+}
+
+void Init_Timer(uint32_t period)
+{
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
+
+    TIM_TimeBaseInitTypeDef timerInitStructure; 
+    //Forse un PLL raddoppia la frequenza
+    timerInitStructure.TIM_Prescaler = 72000 - 1 ; //Ho messo il -1 perchè l'ho visto fare.
+    timerInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
+    timerInitStructure.TIM_Period = period -1; //Ho messo il -1 perchè l'ho visto fare.
+    timerInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+    timerInitStructure.TIM_RepetitionCounter = 0;
+    TIM_TimeBaseInit(TIM2, &timerInitStructure);
+    TIM_Cmd(TIM2, ENABLE);
+    //Attiviamo gli interrupt per questo timer
+    TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
+}
+
+void EnableTimerInterrupt()
+{
+    NVIC_InitTypeDef nvicStructure;
+    nvicStructure.NVIC_IRQChannel = TIM2_IRQn;
+    nvicStructure.NVIC_IRQChannelPreemptionPriority = 0;
+    nvicStructure.NVIC_IRQChannelSubPriority = 1;
+    nvicStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&nvicStructure);
+}
 
   int main(void)
 {
@@ -49,7 +109,9 @@ int readProgress = 0;
     while (1)
     {}
   }
-
+  //Initialize all leds
+  All_Led_init();
+  
   //USART1
   RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
   //RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1,ENABLE);    
@@ -88,9 +150,7 @@ int readProgress = 0;
   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 7;
   NVIC_InitStructure.NVIC_IRQChannelCmd=ENABLE;
-  NVIC_Init(&NVIC_InitStructure);
-
-  
+  NVIC_Init(&NVIC_InitStructure);  
   
   
   USART_Cmd(USART2, ENABLE);
@@ -113,6 +173,15 @@ void Delay(__IO uint32_t nTime)
   TimingDelay = nTime;
 
   while(TimingDelay != 0);
+}
+
+void TIM2_IRQHandler()
+{
+    if (TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET)
+    {
+        TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
+        STM_EVAL_LEDToggle(blinking_led);
+    }
 }
 
 void USART2_IRQHandler(void)
@@ -208,8 +277,8 @@ void BAU_PacketSend(uint8_t pack[])
     len = readPayloadLength(pack[PLEN_1], pack[PLEN_2]);
     for(i=0; i < len + 7; i++)
     {
-        while (USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET);
-            USART_SendData(USART2, pack[i]);
+         while (USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET);
+         USART_SendData(USART2, pack[i]);
     }
 }
 
@@ -221,8 +290,51 @@ void BAU_Echo(uint8_t pack[])
 void BAU_FW_Version(uint8_t pack[])
 {
     //Assembla un pacchetto di risposta per tornare la versione 0.8
-    uint8_t fw_response[9] = {0x2E, 0xB0, 0x01,0x00, 0x02, 0x00,0x08, 0x0A, 0x0B};
+    uint8_t fw_response[9] = {0x2E, 0xB0, FW_VERSION,0x00, 0x02, 0x00,0x08, 0x0A, 0x0B};
     BAU_PacketSend(fw_response);
+}
+
+void BAU_Led(uint8_t pack[])
+{
+    //STM32 fa questa fantastica associazione con i led 
+    uint8_t led_n = pack[LED_num] - 3;
+    
+    switch(pack[ACTION])
+    {
+      case GET:
+        {
+          int status = MS_GetLedStatus(led_n) ? 0xF1 : 0xF0;
+          uint8_t led_response[10] = {0x2E, 0xB0, LED, 0x00, 0x03, led_n, GET, status, 0x0A, 0x0B};
+          BAU_PacketSend(led_response);
+          break;
+        }
+      case SET:
+        {
+          int value = pack[ACTION + 1];
+          switch(value)
+          {
+              case ON:
+                  STM_EVAL_LEDOn(led_n);
+                  break;
+              case OFF:
+                  STM_EVAL_LEDOff(led_n);
+                  break;
+              case TOGGLE:
+                  STM_EVAL_LEDToggle(led_n);
+                  break;
+          }
+          break;
+        }
+    case BLINK:
+      {
+          t_blink = readPayloadLength(pack[SPEED_1], pack[SPEED_2]);
+          blinking_led = led_n;
+          Init_Timer(t_blink/2);
+          EnableTimerInterrupt();
+          break;
+      }
+          
+    }
 }
 
 void BAU_PacketDispatch(uint8_t pack[])
@@ -249,6 +361,10 @@ void BAU_PacketDispatch(uint8_t pack[])
         break;
     case FW_VERSION:
         BAU_FW_Version(pack);
+        break;
+    case LED:
+        debug = 1;
+        BAU_Led(pack);
         break;
     }
         

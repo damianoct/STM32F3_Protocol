@@ -12,7 +12,7 @@
           
           
           
-        <Column0>140</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+        <Column0>190</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
       </Workspace>
       <Build>
         
@@ -37,7 +37,7 @@
             <Factory>Workspace</Factory>
             <Session>
               
-            <NodeDict><ExpandedNode>SysTick</ExpandedNode><ExpandedNode>SysTick/EWARM</ExpandedNode><ExpandedNode>SysTick/Output</ExpandedNode><ExpandedNode>SysTick/STM32F3-Discovery</ExpandedNode><ExpandedNode>SysTick/User</ExpandedNode></NodeDict></Session>
+            <NodeDict><ExpandedNode>SysTick</ExpandedNode><ExpandedNode>SysTick/EWARM</ExpandedNode><ExpandedNode>SysTick/Output</ExpandedNode><ExpandedNode>SysTick/STM32F3-Discovery</ExpandedNode><ExpandedNode>SysTick/STM32F30x_StdPeriph_Driver</ExpandedNode><ExpandedNode>SysTick/User</ExpandedNode></NodeDict></Session>
           </Tab>
         </Tabs>
         
@@ -63,14 +63,14 @@
       
       
       
-    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>235</YPos2><SelStart2>7454</SelStart2><SelEnd2>7454</SelEnd2></Tab><ActiveTab>0</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>62</YPos2><SelStart2>2217</SelStart2><SelEnd2>2217</SelEnd2></Tab><ActiveTab>0</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\Libraries\STM32F30x_StdPeriph_Driver\src\stm32f30x_tim.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>228</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\Libraries\STM32F30x_StdPeriph_Driver\inc\stm32f30x_tim.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>48</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\Example005_Serial\Example005_Serial\system_stm32f30x.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>105</YPos2><SelStart2>5448</SelStart2><SelEnd2>5448</SelEnd2></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
       
       
       
       
       
-    <Top><Row0><Sizes><Toolbar-0113B9B0><key>iaridepm.enu1</key></Toolbar-0113B9B0></Sizes></Row0><Row1><Sizes/></Row1></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>575</Bottom><Right>214</Right><x>-2</x><y>-2</y><xscreen>201</xscreen><yscreen>201</yscreen><sizeHorzCX>157031</sizeHorzCX><sizeHorzCY>279944</sizeHorzCY><sizeVertCX>168750</sizeVertCX><sizeVertCY>803621</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>98</Bottom><Right>1282</Right><x>-2</x><y>-2</y><xscreen>1284</xscreen><yscreen>100</yscreen><sizeHorzCX>1003125</sizeHorzCX><sizeHorzCY>139276</sizeHorzCY><sizeVertCX>157031</sizeVertCX><sizeVertCY>279944</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+    <Top><Row0><Sizes><Toolbar-0113B9B0><key>iaridepm.enu1</key></Toolbar-0113B9B0></Sizes></Row0><Row1><Sizes/></Row1></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>547</Bottom><Right>281</Right><x>-2</x><y>-2</y><xscreen>201</xscreen><yscreen>201</yscreen><sizeHorzCX>157031</sizeHorzCX><sizeHorzCY>279944</sizeHorzCY><sizeVertCX>221094</sizeVertCX><sizeVertCY>764624</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>126</Bottom><Right>1282</Right><x>-2</x><y>-2</y><xscreen>1284</xscreen><yscreen>128</yscreen><sizeHorzCX>1003125</sizeHorzCX><sizeHorzCY>178273</sizeHorzCY><sizeVertCX>157031</sizeVertCX><sizeVertCY>279944</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Workspace>
 
