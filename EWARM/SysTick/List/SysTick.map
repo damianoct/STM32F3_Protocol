@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V7.40.1.8447/W32 for ARM                 23/May/2015  21:03:17
+# IAR ELF Linker V7.40.1.8447/W32 for ARM                 24/May/2015  11:04:22
 # Copyright 2007-2015 IAR Systems AB.
 #
 #    Output file  =  
@@ -97,48 +97,28 @@ __SystemLibrary = DLib
   .intvec            ro code  0x08000000  0x188  startup_stm32f30x.o [1]
                             - 0x08000188  0x188
 
-"P1":                                     0xae8
-  .text              ro code  0x08000188  0x258  stm32f30x_rcc.o [1]
-  .text              ro code  0x080003e0  0x230  main.o [1]
-  .text              ro code  0x08000610   0x92  stm32f30x_gpio.o [1]
-  .text              ro code  0x080006a2   0x22  zero_init3.o [5]
-  .text              ro code  0x080006c4  0x144  stm32f30x_usart.o [1]
-  .text              ro code  0x08000808   0x6c  stm32f30x_misc.o [1]
-  .text              ro code  0x08000874   0x14  memset.o [3]
-  .text              ro code  0x08000888   0x66  ABImemset.o [5]
-  .text              ro code  0x080008f0   0xf8  system_stm32f30x.o [1]
-  .text              ro code  0x080009e8   0x2c  copy_init3.o [5]
-  .text              ro code  0x08000a14   0x28  data_init.o [5]
-  .text              ro code  0x08000a3c   0x22  fpinit_M.o [4]
-  .iar.init_table    const    0x08000a60   0x24  - Linker created -
-  .text              ro code  0x08000a84   0x20  stm32f30x_it.o [1]
-  .text              ro code  0x08000aa4   0x1a  cmain.o [5]
-  .text              ro code  0x08000abe    0x4  low_level_init.o [3]
-  .text              ro code  0x08000ac2    0x4  exit.o [3]
-  .text              ro code  0x08000ac8    0xa  cexit.o [5]
-  .text              ro code  0x08000ad4   0x14  exit.o [6]
-  .text              ro code  0x08000ae8   0x10  startup_stm32f30x.o [1]
-  .text              ro code  0x08000af8    0xc  cstartup_M.o [5]
-  .text              ro code  0x08000b04    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b08    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b0c    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b10    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b14    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b18    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b1c    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b20    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b24    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b28    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b2c    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b30    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b34    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b38    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b3c    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b40    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b44    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b48    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b4c    0x4  startup_stm32f30x.o [1]
-  .text              ro code  0x08000b50    0x4  startup_stm32f30x.o [1]
+"P1":                                     0xb38
+  .text              ro code  0x08000188  0x280  main.o [1]
+  .text              ro code  0x08000408  0x258  stm32f30x_rcc.o [1]
+  .text              ro code  0x08000660   0x92  stm32f30x_gpio.o [1]
+  .text              ro code  0x080006f2   0x22  zero_init3.o [5]
+  .text              ro code  0x08000714  0x144  stm32f30x_usart.o [1]
+  .text              ro code  0x08000858   0x6c  stm32f30x_misc.o [1]
+  .text              ro code  0x080008c4   0x14  memset.o [3]
+  .text              ro code  0x080008d8   0x66  ABImemset.o [5]
+  .text              ro code  0x08000940   0xf8  system_stm32f30x.o [1]
+  .text              ro code  0x08000a38   0x2c  copy_init3.o [5]
+  .text              ro code  0x08000a64   0x28  data_init.o [5]
+  .text              ro code  0x08000a8c   0x22  fpinit_M.o [4]
+  .iar.init_table    const    0x08000ab0   0x24  - Linker created -
+  .text              ro code  0x08000ad4   0x20  stm32f30x_it.o [1]
+  .text              ro code  0x08000af4   0x1a  cmain.o [5]
+  .text              ro code  0x08000b0e    0x4  low_level_init.o [3]
+  .text              ro code  0x08000b12    0x4  exit.o [3]
+  .text              ro code  0x08000b18    0xa  cexit.o [5]
+  .text              ro code  0x08000b24   0x14  exit.o [6]
+  .text              ro code  0x08000b38   0x10  startup_stm32f30x.o [1]
+  .text              ro code  0x08000b48    0xc  cstartup_M.o [5]
   .text              ro code  0x08000b54    0x4  startup_stm32f30x.o [1]
   .text              ro code  0x08000b58    0x4  startup_stm32f30x.o [1]
   .text              ro code  0x08000b5c    0x4  startup_stm32f30x.o [1]
@@ -194,10 +174,30 @@ __SystemLibrary = DLib
   .text              ro code  0x08000c24    0x4  startup_stm32f30x.o [1]
   .text              ro code  0x08000c28    0x4  startup_stm32f30x.o [1]
   .text              ro code  0x08000c2c    0x4  startup_stm32f30x.o [1]
-  .rodata            const    0x08000c30    0x0  zero_init3.o [5]
-  .rodata            const    0x08000c30    0x0  copy_init3.o [5]
-  Initializer bytes  const    0x08000c30   0x40  <for P2 s0>
-                            - 0x08000c70  0xae8
+  .text              ro code  0x08000c30    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000c34    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000c38    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000c3c    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000c40    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000c44    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000c48    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000c4c    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000c50    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000c54    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000c58    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000c5c    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000c60    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000c64    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000c68    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000c6c    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000c70    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000c74    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000c78    0x4  startup_stm32f30x.o [1]
+  .text              ro code  0x08000c7c    0x4  startup_stm32f30x.o [1]
+  .rodata            const    0x08000c80    0x0  zero_init3.o [5]
+  .rodata            const    0x08000c80    0x0  copy_init3.o [5]
+  Initializer bytes  const    0x08000c80   0x40  <for P2 s0>
+                            - 0x08000cc0  0xb38
 
 "P2":                                     0x6b0
   P2 s0                       0x20000000   0x40  <Init block>
@@ -224,7 +224,7 @@ Zero (__iar_zero_init3)
 
 Copy (__iar_copy_init3)
     1 source range, total size 0x40:
-          0x08000c30   0x40
+          0x08000c80   0x40
     1 destination range, total size 0x40:
           0x20000000   0x40
 
@@ -237,7 +237,7 @@ Copy (__iar_copy_init3)
     Module               ro code  ro data  rw data
     ------               -------  -------  -------
 C:\Users\Marco\Desktop\Esempi miei\Project\Lab\STM32F3_Protocol\EWARM\SysTick\Obj: [1]
-    main.o                   560               620
+    main.o                   640               620
     startup_stm32f30x.o      708
     stm32f30x_gpio.o         146
     stm32f30x_it.o            32
@@ -246,7 +246,7 @@ C:\Users\Marco\Desktop\Esempi miei\Project\Lab\STM32F3_Protocol\EWARM\SysTick\Ob
     stm32f30x_usart.o        324
     system_stm32f30x.o       248       20       20
     ----------------------------------------------
-    Total:                 2 726       64      684
+    Total:                 2 806       64      684
 
 command line: [2]
     ----------------------------------------------
@@ -283,7 +283,7 @@ shb_l.a: [6]
     Gaps                       6        2
     Linker created                     36    1 024
 --------------------------------------------------
-    Grand Total:           3 082      102    1 708
+    Grand Total:           3 162      102    1 708
 
 
 *******************************************************************************
@@ -292,69 +292,70 @@ shb_l.a: [6]
 
 Entry                      Address   Size  Type      Object
 -----                      -------   ----  ----      ------
-.iar.init_table$$Base   0x08000a60          --   Gb  - Linker created -
-.iar.init_table$$Limit  0x08000a84          --   Gb  - Linker created -
-?main                   0x08000aa5         Code  Gb  cmain.o [5]
+.iar.init_table$$Base   0x08000ab0          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x08000ad4          --   Gb  - Linker created -
+?main                   0x08000af5         Code  Gb  cmain.o [5]
 ADCPrescTable           0x20000010   0x1c  Data  Lc  stm32f30x_rcc.o [1]
 AHBPrescTable           0x2000002c   0x10  Data  Gb  system_stm32f30x.o [1]
 APBAHBPrescTable        0x20000000   0x10  Data  Lc  stm32f30x_rcc.o [1]
-BAU_PacketClone         0x0800056b   0x2a  Code  Gb  main.o [1]
-BAU_PacketDispatch      0x080005ed   0x24  Code  Gb  main.o [1]
-BAU_PacketSend          0x08000595   0x30  Code  Gb  main.o [1]
-BusFault_Handler        0x08000a8b    0x2  Code  Gb  stm32f30x_it.o [1]
+BAU_FW_Version          0x08000395   0x16  Code  Gb  main.o [1]
+BAU_PacketClone         0x08000313   0x2a  Code  Gb  main.o [1]
+BAU_PacketDispatch      0x080003ab   0x50  Code  Gb  main.o [1]
+BAU_PacketSend          0x0800033d   0x30  Code  Gb  main.o [1]
+BusFault_Handler        0x08000adb    0x2  Code  Gb  stm32f30x_it.o [1]
 CSTACK$$Base            0x200002b0          --   Gb  - Linker created -
 CSTACK$$Limit           0x200006b0          --   Gb  - Linker created -
-DebugMon_Handler        0x08000a91    0x2  Code  Gb  stm32f30x_it.o [1]
-GPIO_Init               0x08000611   0x6e  Code  Gb  stm32f30x_gpio.o [1]
+DebugMon_Handler        0x08000ae1    0x2  Code  Gb  stm32f30x_it.o [1]
+GPIO_Init               0x08000661   0x6e  Code  Gb  stm32f30x_gpio.o [1]
 GPIO_InitStructure      0x200002a0    0x8  Data  Gb  main.o [1]
-GPIO_PinAFConfig        0x0800067f   0x24  Code  Gb  stm32f30x_gpio.o [1]
-HardFault_Handler       0x08000a87    0x2  Code  Gb  stm32f30x_it.o [1]
-MemManage_Handler       0x08000a89    0x2  Code  Gb  stm32f30x_it.o [1]
-NMI_Handler             0x08000a85    0x2  Code  Gb  stm32f30x_it.o [1]
-NVIC_Init               0x08000809   0x5a  Code  Gb  stm32f30x_misc.o [1]
-PendSV_Handler          0x08000a93    0x2  Code  Gb  stm32f30x_it.o [1]
-RCC_AHBPeriphClockCmd   0x080003a3   0x12  Code  Gb  stm32f30x_rcc.o [1]
-RCC_APB1PeriphClockCmd  0x080003b5   0x12  Code  Gb  stm32f30x_rcc.o [1]
-RCC_GetClocksFreq       0x08000189  0x21a  Code  Gb  stm32f30x_rcc.o [1]
-Region$$Table$$Base     0x08000a60          --   Gb  - Linker created -
-Region$$Table$$Limit    0x08000a84          --   Gb  - Linker created -
-SVC_Handler             0x08000a8f    0x2  Code  Gb  stm32f30x_it.o [1]
-SysTick_Handler         0x08000a95    0xa  Code  Gb  stm32f30x_it.o [1]
+GPIO_PinAFConfig        0x080006cf   0x24  Code  Gb  stm32f30x_gpio.o [1]
+HardFault_Handler       0x08000ad7    0x2  Code  Gb  stm32f30x_it.o [1]
+MemManage_Handler       0x08000ad9    0x2  Code  Gb  stm32f30x_it.o [1]
+NMI_Handler             0x08000ad5    0x2  Code  Gb  stm32f30x_it.o [1]
+NVIC_Init               0x08000859   0x5a  Code  Gb  stm32f30x_misc.o [1]
+PendSV_Handler          0x08000ae3    0x2  Code  Gb  stm32f30x_it.o [1]
+RCC_AHBPeriphClockCmd   0x08000623   0x12  Code  Gb  stm32f30x_rcc.o [1]
+RCC_APB1PeriphClockCmd  0x08000635   0x12  Code  Gb  stm32f30x_rcc.o [1]
+RCC_GetClocksFreq       0x08000409  0x21a  Code  Gb  stm32f30x_rcc.o [1]
+Region$$Table$$Base     0x08000ab0          --   Gb  - Linker created -
+Region$$Table$$Limit    0x08000ad4          --   Gb  - Linker created -
+SVC_Handler             0x08000adf    0x2  Code  Gb  stm32f30x_it.o [1]
+SysTick_Handler         0x08000ae5    0xa  Code  Gb  stm32f30x_it.o [1]
 SystemCoreClock         0x2000003c    0x4  Data  Gb  system_stm32f30x.o [1]
-SystemInit              0x080008f1   0xda  Code  Gb  system_stm32f30x.o [1]
+SystemInit              0x08000941   0xda  Code  Gb  system_stm32f30x.o [1]
 TimingDelay             0x200002a8    0x4  Data  Gb  main.o [1]
-USART2_IRQHandler       0x080004a5   0xb0  Code  Gb  main.o [1]
-USART_Cmd               0x08000779   0x12  Code  Gb  stm32f30x_usart.o [1]
-USART_GetFlagStatus     0x080007c5    0xe  Code  Gb  stm32f30x_usart.o [1]
-USART_GetITStatus       0x080007d3   0x36  Code  Gb  stm32f30x_usart.o [1]
-USART_ITConfig          0x0800079b   0x2a  Code  Gb  stm32f30x_usart.o [1]
-USART_Init              0x080006c5   0x9e  Code  Gb  stm32f30x_usart.o [1]
-USART_ReceiveData       0x08000793    0x8  Code  Gb  stm32f30x_usart.o [1]
-USART_SendData          0x0800078b    0x8  Code  Gb  stm32f30x_usart.o [1]
-UsageFault_Handler      0x08000a8d    0x2  Code  Gb  stm32f30x_it.o [1]
-__aeabi_memset          0x08000889         Code  Gb  ABImemset.o [5]
-__cmain                 0x08000aa5         Code  Gb  cmain.o [5]
-__exit                  0x08000ad5   0x14  Code  Gb  exit.o [6]
-__iar_Memset            0x08000889         Code  Gb  ABImemset.o [5]
-__iar_Memset_word       0x08000891         Code  Gb  ABImemset.o [5]
-__iar_copy_init3        0x080009e9   0x2c  Code  Gb  copy_init3.o [5]
-__iar_data_init3        0x08000a15   0x28  Code  Gb  data_init.o [5]
-__iar_init_vfp          0x08000a3d         Code  Gb  fpinit_M.o [4]
-__iar_program_start     0x08000af9         Code  Gb  cstartup_M.o [5]
-__iar_zero_init3        0x080006a3   0x22  Code  Gb  zero_init3.o [5]
-__low_level_init        0x08000abf    0x4  Code  Gb  low_level_init.o [3]
+USART2_IRQHandler       0x0800024d   0xb0  Code  Gb  main.o [1]
+USART_Cmd               0x080007c9   0x12  Code  Gb  stm32f30x_usart.o [1]
+USART_GetFlagStatus     0x08000815    0xe  Code  Gb  stm32f30x_usart.o [1]
+USART_GetITStatus       0x08000823   0x36  Code  Gb  stm32f30x_usart.o [1]
+USART_ITConfig          0x080007eb   0x2a  Code  Gb  stm32f30x_usart.o [1]
+USART_Init              0x08000715   0x9e  Code  Gb  stm32f30x_usart.o [1]
+USART_ReceiveData       0x080007e3    0x8  Code  Gb  stm32f30x_usart.o [1]
+USART_SendData          0x080007db    0x8  Code  Gb  stm32f30x_usart.o [1]
+UsageFault_Handler      0x08000add    0x2  Code  Gb  stm32f30x_it.o [1]
+__aeabi_memset          0x080008d9         Code  Gb  ABImemset.o [5]
+__cmain                 0x08000af5         Code  Gb  cmain.o [5]
+__exit                  0x08000b25   0x14  Code  Gb  exit.o [6]
+__iar_Memset            0x080008d9         Code  Gb  ABImemset.o [5]
+__iar_Memset_word       0x080008e1         Code  Gb  ABImemset.o [5]
+__iar_copy_init3        0x08000a39   0x2c  Code  Gb  copy_init3.o [5]
+__iar_data_init3        0x08000a65   0x28  Code  Gb  data_init.o [5]
+__iar_init_vfp          0x08000a8d         Code  Gb  fpinit_M.o [4]
+__iar_program_start     0x08000b49         Code  Gb  cstartup_M.o [5]
+__iar_zero_init3        0x080006f3   0x22  Code  Gb  zero_init3.o [5]
+__low_level_init        0x08000b0f    0x4  Code  Gb  low_level_init.o [3]
 __vector_table          0x08000000         Data  Gb  startup_stm32f30x.o [1]
-_call_main              0x08000ab1         Code  Gb  cmain.o [5]
-_exit                   0x08000ac9         Code  Gb  cexit.o [5]
-_main                   0x08000abb         Code  Gb  cmain.o [5]
+_call_main              0x08000b01         Code  Gb  cmain.o [5]
+_exit                   0x08000b19         Code  Gb  cexit.o [5]
+_main                   0x08000b0b         Code  Gb  cmain.o [5]
 buffer                  0x20000040  0x12c  Data  Gb  main.o [1]
-exit                    0x08000ac3    0x4  Code  Gb  exit.o [3]
-isBitSet                0x08000561    0xa  Code  Gb  main.o [1]
-main                    0x080003e1   0xc4  Code  Gb  main.o [1]
-memset                  0x08000875   0x14  Code  Gb  memset.o [3]
+exit                    0x08000b13    0x4  Code  Gb  exit.o [3]
+isBitSet                0x08000309    0xa  Code  Gb  main.o [1]
+main                    0x08000189   0xc4  Code  Gb  main.o [1]
+memset                  0x080008c5   0x14  Code  Gb  memset.o [3]
 pLen                    0x2000016c    0x2  Data  Gb  main.o [1]
 packet                  0x20000174  0x12c  Data  Gb  main.o [1]
-readPayloadLength       0x0800055b    0x6  Code  Gb  main.o [1]
+readPayloadLength       0x08000303    0x6  Code  Gb  main.o [1]
 readProgress            0x20000170    0x4  Data  Gb  main.o [1]
 
 
@@ -365,7 +366,7 @@ readProgress            0x20000170    0x4  Data  Gb  main.o [1]
 [5] = rt7M_tl.a
 [6] = shb_l.a
 
-  3 082 bytes of readonly  code memory
+  3 162 bytes of readonly  code memory
     102 bytes of readonly  data memory
   1 708 bytes of readwrite data memory
 

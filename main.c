@@ -17,6 +17,7 @@
 
 //Codici dei comandi
 #define ECHO 0x00
+#define FW_VERSION 0x01
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
@@ -217,21 +218,39 @@ void BAU_Echo(uint8_t pack[])
     BAU_PacketSend(pack);
 }
 
+void BAU_FW_Version(uint8_t pack[])
+{
+    //Assembla un pacchetto di risposta per tornare la versione 0.8
+    uint8_t fw_response[9] = {0x2E, 0xB0, 0x01,0x00, 0x02, 0x00,0x08, 0x0A, 0x0B};
+    BAU_PacketSend(fw_response);
+}
+
 void BAU_PacketDispatch(uint8_t pack[])
 {
     //Controllo l'integrità del pacchetto
-    if(isBitSet(pack[1], 4)) //Non ricordo un altro metodo per farlo
+    if(isBitSet(pack[CONF], 4)) //Non ricordo un altro metodo per farlo
     {
         //Qui va il codice per controllare se il CRC corrisponde a quello
         //calcolato. Se non corrisponde si scarta il pacchetto con un return.
     }
+    //Verifco che i 2 MSB di conf siano solo in configurazione request
+    if(!isBitSet(pack[CONF], 6) || (isBitSet(pack[1], 6) && isBitSet(pack[1], 7))) //Controllo che il pacchetto sia solo di request.
+          return;
     
-    if(!isBitSet(pack[1], 6)) //Controllo che il pacchetto sia solo di request.
-            return;
+    //Verifico che il pacchetto sia nella direzione giusta (PC -> Board)
+    if(isBitSet(pack[CONF], 5))
+          return;
     
     //Cambiarlo con uno switch case sul code sarebbe meglio?
-    if(pack[CODE] == ECHO)
+    switch(pack[CODE])
+    {
+    case ECHO:
         BAU_Echo(pack);
+        break;
+    case FW_VERSION:
+        BAU_FW_Version(pack);
+        break;
+    }
         
 }
 
